@@ -1,4 +1,4 @@
-public class Pokemon {
+public class Pokemon implements  PokemonAttributes {
     private String name;
     private String appearance;
     private String type;
@@ -46,24 +46,12 @@ public class Pokemon {
         this.type = type;
     }
 
-    public int getHealthPoints() {
-        return healthPoints;
-    }
-
     public void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
     }
 
-    public int getAttackPoints() {
-        return attackPoints;
-    }
-
     public void setAttackPoints(int attackPoints) {
         this.attackPoints = attackPoints;
-    }
-
-    public int getDefensePoints() {
-        return defensePoints;
     }
 
     public void setDefensePoints(int defensePoints) {
@@ -72,6 +60,21 @@ public class Pokemon {
 
     public Size getSize() {
         return size;
+    }
+
+    @Override
+    public int getHealthPoints() {
+        return healthPoints;
+    }
+
+    @Override
+    public int getAttackPoints() {
+        return attackPoints;
+    }
+
+    @Override
+    public int getDefensePoints() {
+        return defensePoints;
     }
 }
 
