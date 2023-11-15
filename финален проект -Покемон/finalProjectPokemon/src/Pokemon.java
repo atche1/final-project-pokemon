@@ -1,4 +1,7 @@
 public class Pokemon implements  PokemonAttributes {
+    private static final double SMALL_SIZE_MODIFIER = 0.8;
+    private static final double LARGE_SIZE_MODIFIER = 1.2;
+
     private String name;
     private String appearance;
     private String type;
@@ -19,6 +22,28 @@ public class Pokemon implements  PokemonAttributes {
         this.attackPoints = attackPoints;
         this.defensePoints = defensePoints;
         this.size = size;
+
+        adjustStatsBySize();
+    }
+
+    private void adjustStatsBySize() {
+        switch (size.getSize()) {
+            case Size.SMALL:
+                // Намаляване на точките с 20%
+                healthPoints = (int) (healthPoints * SMALL_SIZE_MODIFIER);
+                attackPoints = (int) (attackPoints * SMALL_SIZE_MODIFIER);
+                defensePoints = (int) (defensePoints * SMALL_SIZE_MODIFIER);
+                break;
+            case Size.LARGE:
+                // Увеличаване на точките с 20%
+                healthPoints = (int) (healthPoints * LARGE_SIZE_MODIFIER);
+                attackPoints = (int) (attackPoints * LARGE_SIZE_MODIFIER);
+                defensePoints = (int) (defensePoints * LARGE_SIZE_MODIFIER);
+                break;
+            // Останалите случаи (Size.NORMAL) ще бъдат игнорирани и няма да има промени
+            default:
+                break;
+        }
     }
 
     // гетери и сетъри
