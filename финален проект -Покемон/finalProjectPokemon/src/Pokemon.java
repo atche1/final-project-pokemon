@@ -1,10 +1,14 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Pokemon implements  PokemonAttributes {
     private static final double SMALL_SIZE_MODIFIER = 0.8;
     private static final double LARGE_SIZE_MODIFIER = 1.2;
 
     private String name;
     private String appearance;
-    private String type;
+    private PokemonType type;
+
     private int healthPoints;
     private int attackPoints;
     private int defensePoints;
@@ -14,7 +18,7 @@ public class Pokemon implements  PokemonAttributes {
     public Pokemon() {
     }
     //конструктор
-    public Pokemon(String name, String appearance, String type, int healthPoints, int attackPoints, int defensePoints, Size size) {
+    public Pokemon(String name, String appearance, PokemonType type, int healthPoints, int attackPoints, int defensePoints, Size size) {
         this.name = name;
         this.appearance = appearance;
         this.type = type;
@@ -63,11 +67,11 @@ public class Pokemon implements  PokemonAttributes {
         this.appearance = appearance;
     }
 
-    public String getType() {
+    public PokemonType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(PokemonType type) {
         this.type = type;
     }
 
@@ -101,5 +105,9 @@ public class Pokemon implements  PokemonAttributes {
     public int getDefensePoints() {
         return defensePoints;
     }
+
+
+
+
 }
 
