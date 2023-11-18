@@ -3,25 +3,6 @@ import java.util.Scanner;
 
 public class PokemonSelector implements ChoosingPokemon {
     private ArrayList<Pokemon> allPokemon;
-    private Pokemon myPokemon;
-    private Pokemon enemyPokemon;
-
-    // getters and setters
-    public Pokemon getMyPokemon() {
-        return myPokemon;
-    }
-
-    public void setMyPokemon(Pokemon myPokemon) {
-        this.myPokemon = myPokemon;
-    }
-
-    public Pokemon getEnemyPokemon() {
-        return enemyPokemon;
-    }
-
-    public void setEnemyPokemon(Pokemon enemyPokemon) {
-        this.enemyPokemon = enemyPokemon;
-    }
 
     public ArrayList<Pokemon> getAllPokemon() {
         return allPokemon;
