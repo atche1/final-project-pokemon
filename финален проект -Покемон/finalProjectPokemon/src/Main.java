@@ -36,15 +36,15 @@ public class Main {
         System.out.println("Ефективност на атака Grass VS Fire: " + effectivenessGrassVsFire);
         System.out.println("Ефективност на атака Electric VS Fire: " + effectivenessElectricVsFire);
 
-        // тестване на мотодите от класа битки
+        // тестване на мотодите от класа PokemonSelector
         ArrayList<Pokemon> pokemon = new ArrayList<>();
-        pokemon.add(flyingPokemon);
         pokemon.add(firePokemon);
         pokemon.add(waterPokemon);
         pokemon.add(GrassPokemon);
         pokemon.add(ElectricPokemon);
-        Battle battle1 = new Battle(pokemon);
-        battle1.choosePokemon();
+        pokemon.add(flyingPokemon);
+        PokemonSelector select1 = new PokemonSelector(pokemon);
+        select1.choosePokemon();
     }
 
     }
