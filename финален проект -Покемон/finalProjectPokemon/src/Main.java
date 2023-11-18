@@ -45,6 +45,9 @@ public class Main {
         pokemon.add(flyingPokemon);
         PokemonSelector select1 = new PokemonSelector(pokemon);
         select1.choosePokemon();
+        //тестване на метода от класа Battle
+        Battle battle1 = new Battle(firePokemon,waterPokemon);
+        battle1.attackByTheEnemyPokemon();
     }
 
     }
