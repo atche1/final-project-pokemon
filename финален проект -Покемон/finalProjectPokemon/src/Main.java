@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,12 +27,24 @@ public class Main {
         Pokemon waterPokemon = new Pokemon("Wobafet", "Blue",PokemonType.WATER, 100, 50, 30, new Size(Size.SMALL));
         Pokemon GrassPokemon = new Pokemon("Bulbasore", "Green",PokemonType.GRASS, 100, 50, 30, new Size(Size.SMALL));
         Pokemon ElectricPokemon = new Pokemon("Pikachu", "Yellow",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL));
+        //Добавих още един покемон защото в условието пише че трябва да са 5
+        Pokemon flyingPokemon = new Pokemon("Charizard", "Orange",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL));
         double effectivenessWaterVsFire = TypeChart.getEffectiveness(waterPokemon.getType(),firePokemon.getType());
         double effectivenessGrassVsFire = TypeChart.getEffectiveness(GrassPokemon.getType(),firePokemon.getType());
         double effectivenessElectricVsFire = TypeChart.getEffectiveness(ElectricPokemon.getType(),firePokemon.getType());
         System.out.println("Ефективност на атака Water VS Fire: " + effectivenessWaterVsFire);
         System.out.println("Ефективност на атака Grass VS Fire: " + effectivenessGrassVsFire);
         System.out.println("Ефективност на атака Electric VS Fire: " + effectivenessElectricVsFire);
+
+        // тестване на мотодите от класа битки
+        ArrayList<Pokemon> pokemon = new ArrayList<>();
+        pokemon.add(flyingPokemon);
+        pokemon.add(firePokemon);
+        pokemon.add(waterPokemon);
+        pokemon.add(GrassPokemon);
+        pokemon.add(ElectricPokemon);
+        Battle battle1 = new Battle(pokemon);
+        battle1.choosePokemon();
     }
 
     }
