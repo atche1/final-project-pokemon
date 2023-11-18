@@ -45,7 +45,7 @@ public class PokemonSelector implements ChoosingPokemon {
         for (int i = 0; i < allPokemon.size(); i++) {
             System.out.println((i + 1) + ". " + allPokemon.get(i).getName());
         }
-        System.out.println("Choose 3 pokemon: ");
+        System.out.println("Choose 3 pokemon");
         for (int i = 0; i < 3; i++) {
             System.out.print("Choose pokemon" + (i + 1) + ": ");
             int numberOfChosenPokemon = input.nextInt();
@@ -72,8 +72,10 @@ public class PokemonSelector implements ChoosingPokemon {
                         }
                     }
                 }
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 System.out.println(e);
+                System.out.println("Choose 3 pokemon");
                 for (i = 0; i < 3; i++) {
                     System.out.print("Choose pokemon" + (i + 1) + ": ");
                     numberOfChosenPokemon = input.nextInt();
@@ -98,12 +100,13 @@ public class PokemonSelector implements ChoosingPokemon {
                         }
                     }
                 }
-                    System.out.println("These are the pokemon you chose: ");
-                    for (i = 0; i < chosenPokemon.size(); i++) {
-                        System.out.println(chosenPokemon.get(i).getName());
-                    }
-                }
+
             }
+            }
+        System.out.println("These are the pokemon you chose: ");
+        for (Pokemon pokemon : chosenPokemon) {
+            System.out.println(pokemon.getName());
+        }
         }
     }
 
