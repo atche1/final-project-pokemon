@@ -25,22 +25,26 @@ public class Battle {
         this.myPokemon = myPokemon;
         this.enemyPokemon = enemyPokemon;
     }
-    // методът не връща верен резултат
-    void attackByTheEnemyPokemon() {
-       double allPoints;
-        if (enemyPokemon.getType().equals(PokemonType.WATER) && myPokemon.getType().equals(PokemonType.FIRE)) {
-            allPoints = enemyPokemon.getAttackPoints() * TypeChart.getEffectiveness(enemyPokemon.getType(), myPokemon.getType());
-            if (myPokemon.getDefensePoints() < allPoints){
-                System.out.println("Defense points after attack: " + 0);
-                double allPointsAfterAttack = allPoints - myPokemon.getDefensePoints();
-                double healthPointsOfMyPokemonAfterAttack = myPokemon.getHealthPoints() - allPointsAfterAttack;
-                System.out.println("Health points after attack: " + healthPointsOfMyPokemonAfterAttack);
+
+    public void attackByTheEnemyPokemon(Attack attackType,double effectiveness) {
+        int allDamagePoints = (int) (enemyPokemon.getAttackPoints() * effectiveness) + attackType.getPower();
+        enemyPokemon.setDefensePoints(myPokemon.getDefensePoints() - allDamagePoints);
+        if (myPokemon.getDefensePoints() < allDamagePoints){
+            System.out.println("Defense points of " + myPokemon.getName() + " after attack: "  + 0) ;
+            int allDamagePoints2 = allDamagePoints - myPokemon.getDefensePoints();
+            if (myPokemon.getHealthPoints() < allDamagePoints2){
+                System.out.println("Health points of " + myPokemon.getName() + " after attack: " + 0);
             }
-
+            else{
+                myPokemon.setHealthPoints(myPokemon.getHealthPoints() - allDamagePoints2);
+                System.out.println("Health points of " + myPokemon.getName() + " after attack: " + myPokemon.getHealthPoints());
+            }
         }
-
+        else{
+            myPokemon.setDefensePoints(myPokemon.getDefensePoints() - allDamagePoints);
+            System.out.println("Health points of " + myPokemon.getName() + " after attack: " + myPokemon.getDefensePoints());
+        }
     }
-
-    }
+}
 
 
