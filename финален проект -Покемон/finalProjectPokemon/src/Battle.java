@@ -28,7 +28,6 @@ public class Battle {
 
     public void attackByTheEnemyPokemon(Attack attackType,double effectiveness) {
         int allDamagePoints = (int) (enemyPokemon.getAttackPoints() * effectiveness) + attackType.getPower();
-        enemyPokemon.setDefensePoints(myPokemon.getDefensePoints() - allDamagePoints);
         if (myPokemon.getDefensePoints() < allDamagePoints){
             System.out.println("Defense points of " + myPokemon.getName() + " after attack: "  + 0) ;
             int allDamagePoints2 = allDamagePoints - myPokemon.getDefensePoints();
@@ -43,6 +42,24 @@ public class Battle {
         else{
             myPokemon.setDefensePoints(myPokemon.getDefensePoints() - allDamagePoints);
             System.out.println("Health points of " + myPokemon.getName() + " after attack: " + myPokemon.getDefensePoints());
+        }
+    }
+    public void attackByMyPokemon(Attack attackType,double effectiveness) {
+        int allDamagePoints = (int) (myPokemon.getAttackPoints() * effectiveness) + attackType.getPower();
+        if (enemyPokemon.getDefensePoints() < allDamagePoints){
+            System.out.println("Defense points of " + enemyPokemon.getName() + " after attack: "  + 0) ;
+            int allDamagePoints2 = allDamagePoints - enemyPokemon.getDefensePoints();
+            if (enemyPokemon.getHealthPoints() < allDamagePoints2){
+                System.out.println("Health points of " + enemyPokemon.getName() + " after attack: " + 0);
+            }
+            else{
+                enemyPokemon.setHealthPoints(enemyPokemon.getHealthPoints() - allDamagePoints2);
+                System.out.println("Health points of " + enemyPokemon.getName() + " after attack: " + enemyPokemon.getHealthPoints());
+            }
+        }
+        else{
+            enemyPokemon.setDefensePoints(enemyPokemon.getDefensePoints() - allDamagePoints);
+            System.out.println("Health points of " + enemyPokemon.getName() + " after attack: " + enemyPokemon.getDefensePoints());
         }
     }
 }

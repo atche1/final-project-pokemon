@@ -57,8 +57,12 @@ public class Main {
         Attack electricPokemonAttack2 = new ElectricPokemonAttack("Discharge",80);
         Attack grassPokemonAttack2 = new GrassPokemonAttack("Flower Trick",70);
         Attack waterPokemonAttack2 = new WaterPokemonAttack("Aqua Jet",40);
+        //атака от страна на покемона противник
         Battle battle1 = new Battle(firePokemon,waterPokemon);
         battle1.attackByTheEnemyPokemon(waterPokemonAttack,effectivenessWaterVsFire);
+        //атака от страна на нашия покемон
+        Battle battle2 = new Battle(firePokemon,GrassPokemon);
+        battle2.attackByMyPokemon(grassPokemonAttack,effectivenessGrassVsFire);
 
     }
 
