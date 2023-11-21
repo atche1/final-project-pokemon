@@ -36,21 +36,23 @@ public class PokemonSelector implements ChoosingPokemon {
                         throw new Exception("You only have 5 pokemon!");
                     }
                     switch (numberOfChosenPokemon) {
-                        case 1 -> {
+                        case 1 :
                             chosenPokemon.add(allPokemon.get(0));
-                        }
-                        case 2 -> {
+                            break;
+
+                        case 2 :
                             chosenPokemon.add(allPokemon.get(1));
-                        }
-                        case 3 -> {
+                             break;
+                        case 3:
                             chosenPokemon.add(allPokemon.get(2));
-                        }
-                        case 4 -> {
+                            break;
+                        case 4 :
                             chosenPokemon.add(allPokemon.get(3));
-                        }
-                        case 5 -> {
+                            break;
+
+                        case 5 :
                             chosenPokemon.add(allPokemon.get(4));
-                        }
+                        break;
                     }
                 }
             }
