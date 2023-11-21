@@ -23,7 +23,7 @@ public class Main {
 //        System.out.println("Large Pokemon Stats: HP-" + largePokemon.getHealthPoints() + " ATK-" + largePokemon.getAttackPoints() + " DEF-" + largePokemon.getDefensePoints());
 //
 
-        Pokemon firePokemon = new Pokemon("Dragonus", "Red",PokemonType.FIRE, 200, 50, 30, new Size(Size.SMALL));
+        Pokemon firePokemon = new Pokemon("Dragonus", "Red",PokemonType.FIRE, 100, 50, 30, new Size(Size.SMALL));
         Pokemon waterPokemon = new Pokemon("Wobafet", "Blue",PokemonType.WATER, 100, 50, 30, new Size(Size.SMALL));
         Pokemon GrassPokemon = new Pokemon("Bulbasore", "Green",PokemonType.GRASS, 100, 50, 30, new Size(Size.SMALL));
         Pokemon ElectricPokemon = new Pokemon("Pikachu", "Yellow",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL));
@@ -46,17 +46,17 @@ public class Main {
         PokemonSelector select1 = new PokemonSelector(pokemon);
         select1.choosePokemon();
         //тестване на класовете атаки
-        Attack firePokemonAttack = new FirePokemonAttack("Blaze Kick",85);
-        Attack flyingPokemonAttack = new FlyingPokemonAttack("Dual Wingbeat",40);
-        Attack electricPokemonAttack = new ElectricPokemonAttack("Charge Beam",50);
-        Attack grassPokemonAttack = new GrassPokemonAttack("Apple Acid",80);
-        Attack waterPokemonAttack = new WaterPokemonAttack("Aqua Cutter",70);
+        Attack firePokemonAttack = new FirePokemonAttack("Blaze Kick",20);
+        Attack flyingPokemonAttack = new FlyingPokemonAttack("Dual Wingbeat",30);
+        Attack electricPokemonAttack = new ElectricPokemonAttack("Charge Beam",15);
+        Attack grassPokemonAttack = new GrassPokemonAttack("Apple Acid",20);
+        Attack waterPokemonAttack = new WaterPokemonAttack("Aqua Cutter",30);
 
-        Attack firePokemonAttack2 = new FirePokemonAttack("Fire Fang",65);
-        Attack flyingPokemonAttack2 = new FlyingPokemonAttack("Air Slash",75);
-        Attack electricPokemonAttack2 = new ElectricPokemonAttack("Discharge",80);
-        Attack grassPokemonAttack2 = new GrassPokemonAttack("Flower Trick",70);
-        Attack waterPokemonAttack2 = new WaterPokemonAttack("Aqua Jet",40);
+        Attack firePokemonAttack2 = new FirePokemonAttack("Fire Fang",15);
+        Attack flyingPokemonAttack2 = new FlyingPokemonAttack("Air Slash",25);
+        Attack electricPokemonAttack2 = new ElectricPokemonAttack("Discharge",30);
+        Attack grassPokemonAttack2 = new GrassPokemonAttack("Flower Trick",20);
+        Attack waterPokemonAttack2 = new WaterPokemonAttack("Aqua Jet",35);
         //атака от страна на покемона противник
         Battle battle1 = new Battle(firePokemon,waterPokemon);
         battle1.attackByTheEnemyPokemon(waterPokemonAttack,effectivenessWaterVsFire);
