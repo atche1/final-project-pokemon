@@ -106,8 +106,21 @@ public class Pokemon implements  PokemonAttributes {
         return defensePoints;
     }
 
-
-
+    // метод за добавяне на атака според терена
+    public void adjustStatsByTerrain() {
+        Terrain terrain = TerrainManager.getTerrain(this);
+        if(terrain !=null) {
+            if (terrain.getType().equals("Volcano") && type == PokemonType.FIRE) {
+                attackPoints += 20; // Подходящ терен за огнени покемони на вулкан
+            } else if (terrain.getType().equals("Sea") && type == PokemonType.WATER) {
+                attackPoints += 15; // Подходящ терен за воден покемони на море
+            } else if (terrain.getType().equals("Forest") && type == PokemonType.GRASS) {
+                attackPoints += 10; // Подходящ терен за Горски покемони на гора
+            } else {
+                System.out.println("No terrain bonus");
+            }
+        }
+    }
 
 }
 

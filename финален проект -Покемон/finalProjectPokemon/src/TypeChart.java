@@ -12,4 +12,6 @@ public class TypeChart {
     public static double getEffectiveness(PokemonType attacker, PokemonType defender) {
         return effectiveness[attacker.ordinal()][defender.ordinal()];
     }
+
+
 }
