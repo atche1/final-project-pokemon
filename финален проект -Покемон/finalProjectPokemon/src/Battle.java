@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Battle {
     private Pokemon myPokemon;
@@ -51,6 +50,12 @@ public class Battle {
             }
 
     }
+    public void startGame(){
+        ArrayList<Pokemon> pokemonChosenByYou ;
+    }
+
+
+
 }
 
 
