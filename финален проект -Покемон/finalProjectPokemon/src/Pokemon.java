@@ -13,12 +13,23 @@ public class Pokemon implements  PokemonAttributes {
     private int attackPoints;
     private int defensePoints;
     private Size size;
+    private Attack attack;
+
+    public Attack getAttack() {
+        return attack;
+    }
+
+    public void setAttack(Attack attack) {
+        this.attack = attack;
+    }
 
     //дефолтен конструктор
     public Pokemon() {
     }
     //конструктор
-    public Pokemon(String name, String appearance, PokemonType type, int healthPoints, int attackPoints, int defensePoints, Size size) {
+
+
+    public Pokemon(String name, String appearance, PokemonType type, int healthPoints, int attackPoints, int defensePoints, Size size, Attack attack) {
         this.name = name;
         this.appearance = appearance;
         this.type = type;
@@ -26,8 +37,7 @@ public class Pokemon implements  PokemonAttributes {
         this.attackPoints = attackPoints;
         this.defensePoints = defensePoints;
         this.size = size;
-
-        adjustStatsBySize();
+        this.attack = attack;
     }
 
     private void adjustStatsBySize() {

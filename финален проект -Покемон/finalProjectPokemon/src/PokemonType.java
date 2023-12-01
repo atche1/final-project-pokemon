@@ -1,3 +1,3 @@
 public enum PokemonType {
-    FIRE, WATER, GRASS, ELECTRIC
+    FIRE, WATER, GRASS, ELECTRIC,FLYING
 }
