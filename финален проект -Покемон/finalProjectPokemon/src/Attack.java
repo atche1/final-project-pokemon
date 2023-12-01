@@ -22,4 +22,7 @@ public class Attack {
         this.name = name;
         this.power = power;
     }
+    public Attack(){
+
+    }
 }

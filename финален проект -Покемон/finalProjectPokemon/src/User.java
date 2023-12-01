@@ -1,8 +1,25 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class User implements ChoosingPokemon {
+public class User implements Chooseable {
     private Pokemon[] pokemon = new Pokemon[3];
+
+    public Pokemon[] getPokemon() {
+        return pokemon;
+    }
+
+    public void setPokemon(Pokemon[] pokemon) {
+        this.pokemon = pokemon;
+    }
+
+    public int getCrystalsCount() {
+        return crystalsCount;
+    }
+
+    public void setCrystalsCount(int crystalsCount) {
+        this.crystalsCount = crystalsCount;
+    }
+
     private int crystalsCount;
     @Override
    /* public void choosePokemon(ArrayList<Pokemon> allPokemon) {

@@ -1,5 +1,5 @@
 import java.util.ArrayList;
 
-public interface ChoosingPokemon {
+public interface Chooseable {
    void choosePokemon(ArrayList<Pokemon> allPokemon);
 }
