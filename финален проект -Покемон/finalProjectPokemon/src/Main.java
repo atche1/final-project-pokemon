@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,22 +23,45 @@ public class Main {
 //        System.out.println("Large Pokemon Stats: HP-" + largePokemon.getHealthPoints() + " ATK-" + largePokemon.getAttackPoints() + " DEF-" + largePokemon.getDefensePoints());
 //
 
-//        Pokemon firePokemon = new Pokemon("Dragonus", "Red",PokemonType.FIRE, 100, 50, 30, new Size(Size.SMALL));
-//        Pokemon waterPokemon = new Pokemon("Wobafet", "Blue",PokemonType.WATER, 100, 50, 30, new Size(Size.SMALL));
-//        Pokemon GrassPokemon = new Pokemon("Bulbasore", "Green",PokemonType.GRASS, 100, 50, 30, new Size(Size.SMALL));
-//        Pokemon ElectricPokemon = new Pokemon("Pikachu", "Yellow",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL));
-//        double effectivenessWaterVsFire = TypeChart.getEffectiveness(waterPokemon.getType(),firePokemon.getType());
-//        double effectivenessGrassVsFire = TypeChart.getEffectiveness(GrassPokemon.getType(),firePokemon.getType());
-//        double effectivenessElectricVsFire = TypeChart.getEffectiveness(ElectricPokemon.getType(),firePokemon.getType());
-//        System.out.println("Ефективност на атака Water VS Fire: " + effectivenessWaterVsFire);
-//        System.out.println("Ефективност на атака Grass VS Fire: " + effectivenessGrassVsFire);
-//        System.out.println("Ефективност на атака Electric VS Fire: " + effectivenessElectricVsFire);
+ 
+        Pokemon firePokemon = new Pokemon("Dragonus", "Red",PokemonType.FIRE, 100, 50, 30, new Size(Size.SMALL),new Attack("Blaze Kick",20));
+        Pokemon waterPokemon = new Pokemon("Wobafet", "Blue",PokemonType.WATER, 100, 50, 30, new Size(Size.SMALL),new Attack("Aqua Cutter",30));
+        Pokemon GrassPokemon = new Pokemon("Bulbasore", "Green",PokemonType.GRASS, 100, 50, 30, new Size(Size.SMALL),new Attack("Apple Acid",20));
+        Pokemon ElectricPokemon = new Pokemon("Pikachu", "Yellow",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL), new Attack("Charge Beam",15));
+      
+      
+        //Добавих още един покемон защото в условието пише че трябва да са 5
+        Pokemon flyingPokemon = new Pokemon("Charizard", "Orange",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL),new Attack("Dual Wingbeat",30));
+        double effectivenessWaterVsFire = TypeChart.getEffectiveness(waterPokemon.getType(),firePokemon.getType());
+        double effectivenessGrassVsFire = TypeChart.getEffectiveness(GrassPokemon.getType(),firePokemon.getType());
+        double effectivenessElectricVsFire = TypeChart.getEffectiveness(ElectricPokemon.getType(),firePokemon.getType());
+        System.out.println("Ефективност на атака Water VS Fire: " + effectivenessWaterVsFire);
+        System.out.println("Ефективност на атака Grass VS Fire: " + effectivenessGrassVsFire);
+        System.out.println("Ефективност на атака Electric VS Fire: " + effectivenessElectricVsFire);
 
-
+        // тестване на мотодите от класа PokemonSelector
+        ArrayList<Pokemon> pokemon = new ArrayList<>();
+        pokemon.add(firePokemon);
+        pokemon.add(waterPokemon);
+        pokemon.add(GrassPokemon);
+        pokemon.add(ElectricPokemon);
+        pokemon.add(flyingPokemon);
+        //тестване на класовете атаки
+        //атака от страна на покемона противник
+        Battle battle1 = new Battle(firePokemon,waterPokemon);
+        battle1.attackByTheEnemyPokemon(firePokemon.getAttack(),effectivenessWaterVsFire);
+        //атака от страна на нашия покемон
+        Battle battle2 = new Battle(firePokemon,GrassPokemon);
+        battle2.attackByMyPokemon(flyingPokemon.getAttack(),effectivenessGrassVsFire);
+         Display display1 = new Display();
+         display1.displayMainMenu();
+      
+      
+      
 
         //веднъж преди началото на битката ще се избира терен за битката
         Terrain volcanoTerrain = new Terrain("Volcano");
-        Pokemon charmander = new Pokemon("Charmander", "Lizard-like", PokemonType.FIRE, 100, 50, 40,new Size (Size.NORMAL));
+        Pokemon charmander = new Pokemon("Charmander", "Lizard-like", PokemonType.FIRE, 100, 50, 40,new Size (Size.NORMAL),new Attack("Apple Acid",20));
 
         System.out.println("Charmander attack is "+charmander.getAttackPoints());
 
@@ -47,11 +71,14 @@ public class Main {
         System.out.println("Charmander attack on tarain = "+ volcanoTerrain+ " is " +charmander.getAttackPoints());
 
         Pokemon duck = new Pokemon("Duck", "Duck", PokemonType.WATER, 100, 50, 40,new Size (Size.NORMAL));
+
+        Pokemon duck = new Pokemon("Charmander", "Lizard-like", PokemonType.WATER, 100, 50, 40,new Size (Size.NORMAL),new Attack("Apple Acid",20));
         System.out.println("Duck attack is "+duck.getAttackPoints());
 
         // на всеки вход преди атаката ще се проверява ефективноста на даден покемон срещу дригия
         double effectivenessFireVSWater= TypeChart.getEffectiveness(charmander.getType(),duck.getType());
         System.out.println("Ефективност на атака Fire vs Watter: " + effectivenessFireVSWater);
+
         //charmander.setAttackPoints( (int) (charmander.getAttackPoints()*effectivenessFireVSWater));
         //тази ефективност ще се прилага само при атаката на един ход , няма да променя цялата аката на покемона
         //защото като дойде следващия покемон може ефективноста да е друга и за да не се налага постоя да даваме
@@ -70,6 +97,13 @@ public class Main {
         // повече няма да се правят опити за еволюция
         EvolutionManager.evolvePokemon(charmander);
         System.out.println(charmander.getAttackPoints());
+        System.out.println("Charmander vd Duck attack is = "+charmander.getAttackPoints()*effectivenessFireVSWater);
+
+        
+        
+        
+       
+
     }
 
     }
