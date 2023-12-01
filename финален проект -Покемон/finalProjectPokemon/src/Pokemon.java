@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Pokemon implements  PokemonAttributes {
+public class Pokemon extends EvolvablePokemon implements PokemonAttributes {
     private static final double SMALL_SIZE_MODIFIER = 0.8;
     private static final double LARGE_SIZE_MODIFIER = 1.2;
 
@@ -13,6 +13,8 @@ public class Pokemon implements  PokemonAttributes {
     private int attackPoints;
     private int defensePoints;
     private Size size;
+
+
 
     //дефолтен конструктор
     public Pokemon() {
@@ -30,7 +32,7 @@ public class Pokemon implements  PokemonAttributes {
         adjustStatsBySize();
     }
 
-    private void adjustStatsBySize() {
+    protected void adjustStatsBySize() {
         switch (size.getSize()) {
             case Size.SMALL:
                 // Намаляване на точките с 20%
@@ -87,6 +89,10 @@ public class Pokemon implements  PokemonAttributes {
         this.defensePoints = defensePoints;
     }
 
+    public void setSize(Size size) {
+        this.size = size;
+    }
+
     public Size getSize() {
         return size;
     }
@@ -120,6 +126,14 @@ public class Pokemon implements  PokemonAttributes {
                 System.out.println("No terrain bonus");
             }
         }
+    }
+
+    @Override
+    protected void applyEvolutionBonuses() {
+        // Логика за бонусите за еволюцията на Pokemon
+        attackPoints += 30;
+        defensePoints += 15;
+        healthPoints += 50;
     }
 
 }
