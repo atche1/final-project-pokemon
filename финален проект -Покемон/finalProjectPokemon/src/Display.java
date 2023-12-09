@@ -8,7 +8,7 @@ public class Display {
     Pokemon waterPokemon = new Pokemon("Wobafet", "Blue",PokemonType.WATER, 100, 50, 30, new Size(Size.SMALL),new Attack());
     Pokemon grassPokemon = new Pokemon("Bulbasore", "Green",PokemonType.GRASS, 100, 50, 30, new Size(Size.SMALL),new Attack());
     Pokemon electricPokemon = new Pokemon("Pikachu", "Yellow",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL), new Attack());
-    Pokemon flyingPokemon = new Pokemon("Charizard", "Orange",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL),new Attack());
+    Pokemon flyingPokemon = new Pokemon("Charizard", "Orange",PokemonType.FLYING, 100, 50, 30, new Size(Size.SMALL),new Attack());
 
     public Pokemon choosePokemonForOneBattle(){
         Scanner input = new Scanner(System.in);
@@ -71,11 +71,11 @@ public class Display {
     public Attack chooseAttackForYourPokemon(){
         Scanner input = new Scanner(System.in);
         ArrayList<Attack> attacks = new ArrayList<>();
-        attacks.add(new Attack("Blaze Kick",20));
-        attacks.add(new Attack("Aqua Cutter",30));
-        attacks.add(new Attack("Apple Acid",20));
-        attacks.add(new Attack("Charge Beam",15));
-        attacks.add(new Attack("Dual Wingbeat",30));
+        attacks.add(new Attack("Blaze Kick",10));
+        attacks.add(new Attack("Aqua Cutter",6));
+        attacks.add(new Attack("Apple Acid",7));
+        attacks.add(new Attack("Charge Beam",8));
+        attacks.add(new Attack("Dual Wingbeat",9));
         System.out.println("Choose attack for the first battle for your pokemon(1-5): ");
         System.out.println("These are the available attacks: ");
         for (int i = 0; i < attacks.size(); i++) {
@@ -101,11 +101,11 @@ public class Display {
     }
     public Attack generatingAttackForEnemyPokemon(){
         ArrayList<Attack> attacks = new ArrayList<>();
-        attacks.add(new Attack("Blaze Kick",20));
-        attacks.add(new Attack("Aqua Cutter",30));
-        attacks.add(new Attack("Apple Acid",20));
-        attacks.add(new Attack("Charge Beam",15));
-        attacks.add(new Attack("Dual Wingbeat",30));
+        attacks.add(new Attack("Blaze Kick",10));
+        attacks.add(new Attack("Aqua Cutter",6));
+        attacks.add(new Attack("Apple Acid",7));
+        attacks.add(new Attack("Charge Beam",8));
+        attacks.add(new Attack("Dual Wingbeat",9));
         Random rand = new Random();
         int attackNumber = rand.nextInt(5);
         Attack currentEnemyAttack = new Attack();
@@ -115,6 +115,7 @@ public class Display {
     }
 
     public void displayMainMenu(){
+
         startGame(choosePokemonForOneBattle(),chooseAttackForYourPokemon(),chooseEnemyPokemonForOneBattle(),generatingAttackForEnemyPokemon());
 
     }
@@ -128,11 +129,25 @@ public class Display {
         System.out.println("Defense points of enemy pokemon: " + currentEnemyPokemon.getDefensePoints());
         System.out.println("The battle between your pokemon " + currentMyPokemon.getName() + " and enemy pokemon " + currentEnemyPokemon.getName() + " has started!");
         System.out.println("The first attack is made by the opponent pokemon!");
-        System.out.println(currentEnemyPokemon.getName() + " is using " + attackForEnemyPokemon.getName() + " attack that gets " + attackForMyPokemon.getPower() + " points from your pokemon!");
+        System.out.println(currentEnemyPokemon.getName() + " is using " + attackForEnemyPokemon.getName() + " attack that gets " + attackForMyPokemon.getPower() + " points from your pokemon after every attack!");
+        System.out.println(currentMyPokemon.getName() + " is using " + attackForMyPokemon.getName() + " attack that gets " + attackForEnemyPokemon.getPower() + " points from enemy pokemon after every attack!");
         System.out.println("The effectiveness between " + currentMyPokemon.getName() + " and " + currentEnemyPokemon.getName() + ": " + TypeChart.getEffectiveness(currentEnemyPokemon.getType(),currentMyPokemon.getType()));
-        battle.attackByTheEnemyPokemon(attackForEnemyPokemon, TypeChart.getEffectiveness(currentEnemyPokemon.getType(), currentMyPokemon.getType()));
-        if (currentMyPokemon.getHealthPoints() > 0) {
-            battle.attackByMyPokemon(attackForMyPokemon, TypeChart.getEffectiveness(currentMyPokemon.getType(), currentEnemyPokemon.getType()));
+        while(currentMyPokemon.getHealthPoints() > 0 && currentEnemyPokemon.getHealthPoints() > 0) {
+            battle.attackByTheEnemyPokemon(attackForEnemyPokemon, TypeChart.getEffectiveness(currentEnemyPokemon.getType(), currentMyPokemon.getType()));
+            if (currentMyPokemon.getHealthPoints() > 0) {
+                battle.attackByMyPokemon(attackForMyPokemon, TypeChart.getEffectiveness(currentMyPokemon.getType(), currentEnemyPokemon.getType()));
+            }
         }
+        if (currentMyPokemon.getHealthPoints() > 0){
+            System.out.println("You are the winner!");
+            int currentCrystalsCount = user1.getCrystalsCount();
+            currentCrystalsCount += 1;
+            user1.setCrystalsCount(currentCrystalsCount);
+            System.out.println("Now you have " + user1.getCrystalsCount() + " crystal!");
+        }
+        else{
+            System.out.println("The enemy pokemon is the winner!");
+        }
+
     }
 }
