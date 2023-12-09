@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class User implements Chooseable {
     private Pokemon[] pokemon = new Pokemon[3];
+    private int crystalsCount;
 
     public Pokemon[] getPokemon() {
         return pokemon;
@@ -20,87 +21,11 @@ public class User implements Chooseable {
         this.crystalsCount = crystalsCount;
     }
 
-    private int crystalsCount;
-    @Override
-   /* public void choosePokemon(ArrayList<Pokemon> allPokemon) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Available pokemon:");
-        for (int i = 0; i < allPokemon.size(); i++) {
-            System.out.println((i + 1) + ". " + allPokemon.get(i).getName());
-        }
-        System.out.println("Choose 3 pokemon");
-        for (int i = 0; i < 3; i++) {
-            System.out.print("Choose pokemon" + (i + 1) + ": ");
-            int numberOfChosenPokemon = input.nextInt();
-            try {
-                {
-                    if (numberOfChosenPokemon <= 0 || numberOfChosenPokemon > 5) {
-                        throw new Exception("You only have 5 pokemon!");
-                    }
-                    switch (numberOfChosenPokemon) {
-                        case 1:
-                            pokemon[i] = allPokemon.get(0);
-                            break;
-
-                        case 2:
-                            pokemon[i] = allPokemon.get(1);
-                            break;
-                        case 3:
-                            pokemon[i] = allPokemon.get(2);
-                            break;
-                        case 4:
-                            pokemon[i] = allPokemon.get(3);
-                            break;
-
-                        case 5:
-                            pokemon[i] = allPokemon.get(4);
-                            break;
-
-                    }
-                }
-            } catch (Exception e) {
-                System.out.println(e);
-                System.out.println("Choose 3 pokemon");
-                for (i = 0; i < 3; i++) {
-                    System.out.print("Choose pokemon" + (i + 1) + ": ");
-                    numberOfChosenPokemon = input.nextInt();
-
-                    {
-                        switch (numberOfChosenPokemon) {
-                            case 1:
-                                chosenPokemon.add(allPokemon.get(0));
-                                break;
-
-                            case 2:
-                                chosenPokemon.add(allPokemon.get(1));
-                                break;
-                            case 3:
-                                chosenPokemon.add(allPokemon.get(2));
-                                break;
-                            case 4:
-                                chosenPokemon.add(allPokemon.get(3));
-                                break;
-
-                            case 5:
-                                chosenPokemon.add(allPokemon.get(4));
-                                break;
-                        }
-                    }
-                }
-
-            }
-        }
-        System.out.println("These are the pokemon you chose: ");
-        for (Pokemon pokemon : chosenPokemon) {
-            System.out.println(pokemon.getName());
-        }
-    }
-    */
     public void choosePokemon(ArrayList<Pokemon> allPokemon) {
         Scanner input = new Scanner(System.in);
         System.out.println("Available pokemon:");
         for (int i = 0; i < allPokemon.size(); i++) {
-            System.out.println((i + 1) + ". " + allPokemon.get(i).getName());
+            System.out.println((i + 1) + "." + allPokemon.get(i).getName());
         }
         System.out.println("Choose 3 pokemon");
         for (int i = 0; i < 3; i++) {

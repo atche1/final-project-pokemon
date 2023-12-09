@@ -23,7 +23,7 @@ public class Main {
 //        System.out.println("Large Pokemon Stats: HP-" + largePokemon.getHealthPoints() + " ATK-" + largePokemon.getAttackPoints() + " DEF-" + largePokemon.getDefensePoints());
 //
 
- 
+
         Pokemon firePokemon = new Pokemon("Dragonus", "Red",PokemonType.FIRE, 100, 50, 30, new Size(Size.SMALL),new Attack("Blaze Kick",20));
         Pokemon waterPokemon = new Pokemon("Wobafet", "Blue",PokemonType.WATER, 100, 50, 30, new Size(Size.SMALL),new Attack("Aqua Cutter",30));
         Pokemon GrassPokemon = new Pokemon("Bulbasore", "Green",PokemonType.GRASS, 100, 50, 30, new Size(Size.SMALL),new Attack("Apple Acid",20));
@@ -44,11 +44,6 @@ public class Main {
         double effectivenessFireVSWater= TypeChart.getEffectiveness(charmander.getType(),duck.getType());
         System.out.println("Ефективност на атака Fire vs Watter: " + effectivenessFireVSWater);
         System.out.println("Charmander vd Duck attack is = "+charmander.getAttackPoints()*effectivenessFireVSWater);
-
-        
-        
-        
-       
 
         //Добавих още един покемон защото в условието пише че трябва да са 5
         Pokemon flyingPokemon = new Pokemon("Charizard", "Orange",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL),new Attack("Dual Wingbeat",30));
@@ -73,9 +68,10 @@ public class Main {
         //атака от страна на нашия покемон
         Battle battle2 = new Battle(firePokemon,GrassPokemon);
         battle2.attackByMyPokemon(flyingPokemon.getAttack(),effectivenessGrassVsFire);
-         Display display1 = new Display();
-         display1.displayMainMenu();
 
+        //
+        Display display = new Display();
+        display.displayMainMenu();
     }
 
     }
