@@ -30,7 +30,12 @@ public class Main {
         Pokemon ElectricPokemon = new Pokemon("Pikachu", "Yellow",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL), new Attack("Charge Beam",15));
 
 
+
         //веднъж преди началото на битката ще се избира терен за битката
+
+        //веднъж преди началото на битката ще се избира терен за битката
+        // ефективноста на терена ще се поставя на всички покемони
+
         Terrain volcanoTerrain = new Terrain("Volcano");
         Pokemon charmander = new Pokemon("Charmander", "Lizard-like", PokemonType.FIRE, 100, 50, 40,new Size (Size.NORMAL),new Attack("Apple Acid",20));
 
@@ -69,8 +74,6 @@ public class Main {
         //атака от страна на нашия покемон
         Battle battle2 = new Battle(firePokemon,GrassPokemon);
         battle2.attackByMyPokemon(flyingPokemon.getAttack(),effectivenessGrassVsFire);
-         Display display1 = new Display();
-         display1.displayMainMenu();
 
         //charmander.setAttackPoints( (int) (charmander.getAttackPoints()*effectivenessFireVSWater));
         //тази ефективност ще се прилага само при атаката на един ход , няма да променя цялата аката на покемона
@@ -89,8 +92,10 @@ public class Main {
         System.out.println(charmander.getAttackPoints());
         System.out.println("Charmander vd Duck attack is = "+charmander.getAttackPoints()*effectivenessFireVSWater);
 
+
         Display display = new Display();
         display.displayMainMenu();
+
     }
 
     }
