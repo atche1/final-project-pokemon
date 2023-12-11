@@ -1,6 +1,6 @@
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Display {
     User user1 = new User();
@@ -9,40 +9,38 @@ public class Display {
     Pokemon grassPokemon = new Pokemon("Bulbasore", "Green",PokemonType.GRASS, 100, 50, 30, new Size(Size.SMALL),new Attack());
     Pokemon electricPokemon = new Pokemon("Pikachu", "Yellow",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL), new Attack());
     Pokemon flyingPokemon = new Pokemon("Charizard", "Orange",PokemonType.FLYING, 100, 50, 30, new Size(Size.SMALL),new Attack());
+    ArrayList<Pokemon> pokemons
+            = Stream.of(firePokemon,waterPokemon,grassPokemon,electricPokemon,flyingPokemon)
+            .collect(Collectors.toCollection(
+                    ArrayList::new));
 
     public Pokemon choosePokemonForOneBattle(){
         Scanner input = new Scanner(System.in);
-        ArrayList<Pokemon> pokemons = new ArrayList<>();
-        pokemons.add(firePokemon);
-        pokemons.add(waterPokemon);
-        pokemons.add(grassPokemon);
-        pokemons.add(flyingPokemon);
-        pokemons.add(electricPokemon);
-        user1.choosePokemon(pokemons);
-        System.out.print("Choose pokemon for the first battle(1-3): ");
-        int choice = input.nextInt();
-        Pokemon currentPokemon = new Pokemon();
-        switch (choice){
-            case 1: currentPokemon = user1.getPokemon()[0];
-                break;
-            case 2: currentPokemon = user1.getPokemon()[1];
-                break;
-            case 3: currentPokemon = user1.getPokemon()[2];
-                break;
-            default:
-                System.out.println("Invalid input!");
+        int choice;
+        Pokemon currentPokemon = new Pokemon();;
+        do {
+            System.out.print("Choose pokemon for the first battle(1-3): ");
+             choice = input.nextInt();
+            switch (choice) {
+                case 1:
+                    currentPokemon = user1.getPokemon()[0];
+                    break;
+                case 2:
+                    currentPokemon = user1.getPokemon()[1];
+                    break;
+                case 3:
+                    currentPokemon = user1.getPokemon()[2];
+                    break;
+                default:
+                    System.out.println("Invalid input!");
 
+            }
         }
+        while(choice > 3);
         return currentPokemon;
     }
     public Pokemon chooseEnemyPokemonForOneBattle(){
         Scanner input = new Scanner(System.in);
-        ArrayList<Pokemon> pokemons = new ArrayList<>();
-        pokemons.add(firePokemon);
-        pokemons.add(waterPokemon);
-        pokemons.add(grassPokemon);
-        pokemons.add(flyingPokemon);
-        pokemons.add(electricPokemon);
         System.out.println("These are the available pokemon: ");
         for (int i = 0; i < pokemons.size(); i++) {
             System.out.println((i + 1) + "." + pokemons.get(i).getName());
@@ -113,10 +111,33 @@ public class Display {
         return currentEnemyAttack;
 
     }
+    public void changeMyPokemon(Battle battle){
+        Scanner input = new Scanner(System.in);
+        String answer;
+        do{
+            System.out.println("Do you want to change your pokemon(Y/N)?");
+            answer = input.next();
+            if (answer.equalsIgnoreCase("Y")){
+                user1.showMyPokemon();
+                battle.setMyPokemon( choosePokemonForOneBattle());
+            }
+        }
+        while(!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N"));
+
+
+    }
 
     public void displayMainMenu(){
-
-        startGame(choosePokemonForOneBattle(),chooseAttackForYourPokemon(),chooseEnemyPokemonForOneBattle(),generatingAttackForEnemyPokemon());
+        for (int i = 0; i < 5; i++) {
+            System.out.println("\tGAME " + (i+1) + "!");
+            user1.choosePokemon(pokemons);
+            Pokemon pokemon = choosePokemonForOneBattle();
+            System.out.println("!!!!!!!!!!!!!!!" + pokemon.getHealthPoints() +" " +pokemon.getName());
+            startGame(pokemon,chooseAttackForYourPokemon(),chooseEnemyPokemonForOneBattle(),generatingAttackForEnemyPokemon());
+        }
+        for (int i = 0; i < pokemons.size(); i++) {
+            System.out.println(pokemons.get(i).getName() + " " + pokemons.get(i).getHealthPoints());
+        }
 
     }
     public void startGame(Pokemon currentMyPokemon,Attack attackForMyPokemon,Pokemon currentEnemyPokemon,Attack attackForEnemyPokemon){
@@ -134,8 +155,11 @@ public class Display {
         System.out.println("The effectiveness between " + currentMyPokemon.getName() + " and " + currentEnemyPokemon.getName() + ": " + TypeChart.getEffectiveness(currentEnemyPokemon.getType(),currentMyPokemon.getType()));
         while(currentMyPokemon.getHealthPoints() > 0 && currentEnemyPokemon.getHealthPoints() > 0) {
             battle.attackByTheEnemyPokemon(attackForEnemyPokemon, TypeChart.getEffectiveness(currentEnemyPokemon.getType(), currentMyPokemon.getType()));
-            if (currentMyPokemon.getHealthPoints() > 0) {
+            if (currentMyPokemon.getHealthPoints() > 0 && currentEnemyPokemon.getHealthPoints() > 0) {
                 battle.attackByMyPokemon(attackForMyPokemon, TypeChart.getEffectiveness(currentMyPokemon.getType(), currentEnemyPokemon.getType()));
+            }
+            if (currentMyPokemon.getHealthPoints() > 0 && currentEnemyPokemon.getHealthPoints() > 0) {
+                changeMyPokemon(battle);
             }
         }
         if (currentMyPokemon.getHealthPoints() > 0){
@@ -147,6 +171,7 @@ public class Display {
         }
         else{
             System.out.println("The enemy pokemon is the winner!");
+
         }
 
     }

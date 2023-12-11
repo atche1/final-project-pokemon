@@ -23,7 +23,7 @@ public class Main {
 //        System.out.println("Large Pokemon Stats: HP-" + largePokemon.getHealthPoints() + " ATK-" + largePokemon.getAttackPoints() + " DEF-" + largePokemon.getDefensePoints());
 //
 
-
+/*
         Pokemon firePokemon = new Pokemon("Dragonus", "Red",PokemonType.FIRE, 100, 50, 30, new Size(Size.SMALL),new Attack("Blaze Kick",20));
         Pokemon waterPokemon = new Pokemon("Wobafet", "Blue",PokemonType.WATER, 100, 50, 30, new Size(Size.SMALL),new Attack("Aqua Cutter",30));
         Pokemon GrassPokemon = new Pokemon("Bulbasore", "Green",PokemonType.GRASS, 100, 50, 30, new Size(Size.SMALL),new Attack("Apple Acid",20));
@@ -91,7 +91,7 @@ public class Main {
         EvolutionManager.evolvePokemon(charmander);
         System.out.println(charmander.getAttackPoints());
         System.out.println("Charmander vd Duck attack is = "+charmander.getAttackPoints()*effectivenessFireVSWater);
-
+*/
 
         Display display = new Display();
         display.displayMainMenu();

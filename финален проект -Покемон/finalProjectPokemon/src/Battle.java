@@ -31,7 +31,7 @@ public class Battle {
         int damage = attackPoints - myPokemon.getDefensePoints();
         int healthPoints = myPokemon.getHealthPoints() - damage;
         myPokemon.setHealthPoints(healthPoints);
-        System.out.println("Health points of your pokemon after attack: " + myPokemon.getHealthPoints());
+        System.out.println("Health points of your pokemon after attack: " + (myPokemon.getHealthPoints() > 0 ? myPokemon.getHealthPoints() : 0));
         if (myPokemon.getDefensePoints() > attackPoints) {
             myPokemon.setHealthPoints(healthPointsAtTheBeginning);
             System.out.println("Health points of your pokemon after attack: " + myPokemon.getHealthPoints());
@@ -44,7 +44,7 @@ public class Battle {
         int damage = attackPoints - enemyPokemon.getDefensePoints();
         int healthPoints = enemyPokemon.getHealthPoints() - damage;
         enemyPokemon.setHealthPoints(healthPoints);
-        System.out.println("Health points of enemy pokemon after attack: " + enemyPokemon.getHealthPoints());
+        System.out.println("Health points of enemy pokemon after attack: " + (enemyPokemon.getHealthPoints() > 0 ? enemyPokemon.getHealthPoints() : 0));
         if (enemyPokemon.getDefensePoints() > attackPoints) {
             enemyPokemon.setDefensePoints(healthPointsAtTheBeginning);
             System.out.println("Health points of enemy pokemon after attack: " + enemyPokemon.getHealthPoints());
