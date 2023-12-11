@@ -129,14 +129,9 @@ public class Display {
 
     public void displayMainMenu(){
         for (int i = 0; i < 5; i++) {
-            System.out.println("\tGAME " + (i+1) + "!");
+            System.out.println("\tBATTLE " + (i+1) + "!");
             user1.choosePokemon(pokemons);
-            Pokemon pokemon = choosePokemonForOneBattle();
-            System.out.println("!!!!!!!!!!!!!!!" + pokemon.getHealthPoints() +" " +pokemon.getName());
-            startGame(pokemon,chooseAttackForYourPokemon(),chooseEnemyPokemonForOneBattle(),generatingAttackForEnemyPokemon());
-        }
-        for (int i = 0; i < pokemons.size(); i++) {
-            System.out.println(pokemons.get(i).getName() + " " + pokemons.get(i).getHealthPoints());
+            startGame(choosePokemonForOneBattle(),chooseAttackForYourPokemon(),chooseEnemyPokemonForOneBattle(),generatingAttackForEnemyPokemon());
         }
 
     }
