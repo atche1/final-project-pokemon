@@ -152,8 +152,6 @@ public class Display {
             battle.attackByTheEnemyPokemon(attackForEnemyPokemon, TypeChart.getEffectiveness(currentEnemyPokemon.getType(), currentMyPokemon.getType()));
             if (currentMyPokemon.getHealthPoints() > 0 && currentEnemyPokemon.getHealthPoints() > 0) {
                 battle.attackByMyPokemon(attackForMyPokemon, TypeChart.getEffectiveness(currentMyPokemon.getType(), currentEnemyPokemon.getType()));
-            }
-            if (currentMyPokemon.getHealthPoints() > 0 && currentEnemyPokemon.getHealthPoints() > 0) {
                 changeMyPokemon(battle);
             }
         }
@@ -166,8 +164,8 @@ public class Display {
         }
         else{
             System.out.println("The enemy pokemon is the winner!");
-
         }
+
 
     }
 }

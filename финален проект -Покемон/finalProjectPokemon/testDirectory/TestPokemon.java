@@ -34,7 +34,7 @@ public class TestPokemon {
 
     @Test
     public void testAdjustStatsBySizeSmall() {
-        Pokemon pokemon = new Pokemon("Charmander", "Lizard-like", PokemonType.FIRE, 100, 50, 40, new Size(Size.SMALL));
+        Pokemon pokemon = new Pokemon("Charmander", "Lizard-like", PokemonType.FIRE, 100, 50, 40, new Size(Size.SMALL),new Attack());
 
         //pokemon.adjustStatsBySize();
 
@@ -47,7 +47,7 @@ public class TestPokemon {
     @Test
     public void testAdjustStatsBySizeLarge() {
         // Arrange
-        Pokemon pokemon = new Pokemon("Bulbasaur", "Plant-like", PokemonType.GRASS, 120, 60, 55, new Size(Size.LARGE));
+        Pokemon pokemon = new Pokemon("Bulbasaur", "Plant-like", PokemonType.GRASS, 120, 60, 55, new Size(Size.LARGE),new Attack());
 
        // pokemon.adjustStatsBySize();
 
@@ -59,7 +59,7 @@ public class TestPokemon {
 
     @Test
     public void testAdjustStatsBySizeNormal() {
-        Pokemon pokemon = new Pokemon("Squirtle", "Turtle-like", PokemonType.WATER, 80, 45, 35, new Size(Size.NORMAL));
+        Pokemon pokemon = new Pokemon("Squirtle", "Turtle-like", PokemonType.WATER, 80, 45, 35, new Size(Size.NORMAL),new Attack());
 
         pokemon.adjustStatsBySize();
 
@@ -76,7 +76,7 @@ public class TestPokemon {
     public void testAdjustStatsByTerrainVolcano() {
         // Arrange
         Terrain volcanoTerrain = new Terrain("Volcano");
-        Pokemon pokemon = new Pokemon("Charmander", "Lizard-like", PokemonType.FIRE, 100, 50, 40, new Size(Size.NORMAL));
+        Pokemon pokemon = new Pokemon("Charmander", "Lizard-like", PokemonType.FIRE, 100, 50, 40, new Size(Size.NORMAL),new Attack());
 
         // Act
         TerrainManager.setTerrain(pokemon, volcanoTerrain);
@@ -91,7 +91,7 @@ public class TestPokemon {
     public void testAdjustStatsByTerrainSea() {
         // Arrange
         Terrain seaTerrain = new Terrain("Sea");
-        Pokemon pokemon = new Pokemon("Squirtle", "Turtle-like", PokemonType.WATER, 80, 45, 35, new Size(Size.NORMAL));
+        Pokemon pokemon = new Pokemon("Squirtle", "Turtle-like", PokemonType.WATER, 80, 45, 35, new Size(Size.NORMAL),new Attack());
 
         // Act
         TerrainManager.setTerrain(pokemon, seaTerrain);
@@ -106,7 +106,7 @@ public class TestPokemon {
     public void testAdjustStatsByTerrainForest() {
         // Arrange
         Terrain forestTerrain = new Terrain("Forest");
-        Pokemon pokemon = new Pokemon("Bulbasaur", "Plant-like", PokemonType.GRASS, 120, 60, 55, new Size(Size.NORMAL));
+        Pokemon pokemon = new Pokemon("Bulbasaur", "Plant-like", PokemonType.GRASS, 120, 60, 55, new Size(Size.NORMAL),new Attack());
 
         // Act
         TerrainManager.setTerrain(pokemon, forestTerrain);
@@ -121,7 +121,7 @@ public class TestPokemon {
     @Test
     public void testApplyEvolutionBonuses() {
         // Arrange
-        Pokemon pokemon = new Pokemon("Charmander", "Lizard-like", PokemonType.FIRE, 100, 50, 40, new Size(Size.NORMAL));
+        Pokemon pokemon = new Pokemon("Charmander", "Lizard-like", PokemonType.FIRE, 100, 50, 40, new Size(Size.NORMAL),new Attack());
 
         // Act
         pokemon.applyEvolutionBonuses();
