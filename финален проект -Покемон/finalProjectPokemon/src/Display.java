@@ -167,8 +167,8 @@ public class Display {
         }
         else{
             System.out.println("The enemy pokemon is the winner!");
-
         }
+
 
     }
 
