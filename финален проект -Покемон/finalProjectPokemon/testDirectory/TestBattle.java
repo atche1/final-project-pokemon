@@ -8,14 +8,15 @@ public class TestBattle {
     Pokemon enemyPokemon;
     Battle battle;
     Attack attackType;
-
+    Terrain terrain;
 
     @BeforeEach
     public void setUp() {
+        terrain =new Terrain();
         myPokemon = new Pokemon("Pikachu", "Yellow", PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL), new Attack());
         enemyPokemon = new Pokemon("Charizard", "Orange", PokemonType.FLYING, 100, 50, 30, new Size(Size.SMALL), new Attack());
         attackType = new Attack("Blaze Kick",10);
-        battle = new Battle(myPokemon, enemyPokemon);
+        battle = new Battle(myPokemon, enemyPokemon,terrain);
     }
 
     @Test

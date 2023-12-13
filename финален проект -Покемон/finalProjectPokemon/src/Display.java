@@ -4,7 +4,7 @@ import java.util.stream.Stream;
 
 public class Display {
     User user1 = new User();
-    Pokemon firePokemon = new Pokemon("Dragonus", "Red",PokemonType.FIRE, 100, 50, 30, new Size(Size.NORMAL),new Attack());
+    Pokemon firePokemon = new Pokemon("Dragonus", "Red",PokemonType.FIRE, 100, 50, 300, new Size(Size.NORMAL),new Attack());
     Pokemon waterPokemon = new Pokemon("Wobafet", "Blue",PokemonType.WATER, 100, 30, 30, new Size(Size.NORMAL),new Attack());
     Pokemon grassPokemon = new Pokemon("Bulbasore", "Green",PokemonType.GRASS, 100, 50, 30, new Size(Size.SMALL),new Attack());
     Pokemon electricPokemon = new Pokemon("Pikachu", "Yellow",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL), new Attack());
@@ -117,6 +117,18 @@ public class Display {
     public void changeMyPokemon(Battle battle){
         Scanner input = new Scanner(System.in);
         String answer;
+
+        if(user1.getCrystalsCount()>0){
+            System.out.println("You can heal your pokemon for 1 cristal to full HP");
+            System.out.println("Heal pokemon for 1 cristal (you have "+user1.getCrystalsCount()+" cristals) (Y/N) ?");
+            answer = input.next();
+            if (answer.equalsIgnoreCase("Y")){
+              int newCristalCount= user1.getCrystalsCount()-1;
+              user1.setCrystalsCount(newCristalCount);
+              System.out.println("You have succesfully healеd your pokemon ");
+            }
+        }
+
         do{
             System.out.println("Do you want to change your pokemon(Y/N)?");
             answer = input.next();
