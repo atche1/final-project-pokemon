@@ -4,8 +4,8 @@ import java.util.stream.Stream;
 
 public class Display {
     User user1 = new User();
-    Pokemon firePokemon = new Pokemon("Dragonus", "Red",PokemonType.FIRE, 100, 50, 30, new Size(Size.SMALL),new Attack());
-    Pokemon waterPokemon = new Pokemon("Wobafet", "Blue",PokemonType.WATER, 100, 50, 30, new Size(Size.SMALL),new Attack());
+    Pokemon firePokemon = new Pokemon("Dragonus", "Red",PokemonType.FIRE, 100, 50, 30, new Size(Size.NORMAL),new Attack());
+    Pokemon waterPokemon = new Pokemon("Wobafet", "Blue",PokemonType.WATER, 100, 30, 30, new Size(Size.SMALL),new Attack());
     Pokemon grassPokemon = new Pokemon("Bulbasore", "Green",PokemonType.GRASS, 100, 50, 30, new Size(Size.SMALL),new Attack());
     Pokemon electricPokemon = new Pokemon("Pikachu", "Yellow",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL), new Attack());
     Pokemon flyingPokemon = new Pokemon("Charizard", "Orange",PokemonType.FLYING, 100, 50, 30, new Size(Size.SMALL),new Attack());
@@ -17,13 +17,14 @@ public class Display {
     public Pokemon choosePokemonForOneBattle(){
         Scanner input = new Scanner(System.in);
         int choice;
-        Pokemon currentPokemon = new Pokemon();;
+        Pokemon currentPokemon = new Pokemon();
         do {
             System.out.print("Choose pokemon for the first battle(1-3): ");
              choice = input.nextInt();
             switch (choice) {
                 case 1:
                     currentPokemon = user1.getPokemon()[0];
+
                     break;
                 case 2:
                     currentPokemon = user1.getPokemon()[1];
@@ -168,4 +169,35 @@ public class Display {
 
 
     }
-}
+
+    public void selectTerrain(){
+        Scanner input = new Scanner(System.in);
+        int choice;
+        Terrain terrain=new Terrain();
+
+            System.out.println("Choose terrain for battle : ");
+            System.out.println("№1 Volcano");
+            System.out.println("№2 Sea");
+            System.out.println("№3 Forest");
+            System.out.println("Enter choice: ");
+            choice = input.nextInt();
+            switch (choice) {
+                case 1:
+                    terrain = new Terrain("Volcano");
+                    break;
+                case 2:
+                    terrain = new Terrain("Sea");
+                    break;
+                case 3:
+                    terrain = new Terrain("Forest");
+                    break;
+                default:
+                    System.out.println("Invalid input!");
+
+            }
+
+        System.out.println(terrain.toString());
+        }
+
+    }
+

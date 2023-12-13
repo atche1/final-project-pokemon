@@ -94,7 +94,12 @@ public class Main {
 */
 
         Display display = new Display();
+        display.selectTerrain();
         display.displayMainMenu();
+//
+//        Pokemon firePokemon = new Pokemon("Dragonus", "Red",PokemonType.FIRE, 100, 50, 30, new Size(Size.SMALL),new Attack());
+//        EvolutionManager.evolvePokemon(firePokemon);
+//        System.out.println(firePokemon.getAttackPoints());
 
     }
 
