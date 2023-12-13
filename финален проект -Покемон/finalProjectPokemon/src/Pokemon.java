@@ -40,6 +40,7 @@ public class Pokemon extends EvolvablePokemon implements PokemonAttributes {
         this.defensePoints = defensePoints;
         this.size = size;
         this.attack = attack;
+        adjustStatsBySize();
     }
 
     protected void adjustStatsBySize() {

@@ -2,6 +2,8 @@ public class Terrain {
     // създаване на клас за терен
     private String type;
 
+    public Terrain() {
+    }
 
     // създаване на get / set за този клас
     public Terrain(String type) {

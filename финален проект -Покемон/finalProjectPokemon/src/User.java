@@ -30,12 +30,13 @@ public class User implements Chooseable {
     public void choosePokemon(ArrayList<Pokemon> allPokemon) {
         Scanner input = new Scanner(System.in);
         System.out.println("Available pokemon:");
-        for (int i = 0; i < allPokemon.size(); i++) {
-            System.out.println((i + 1) + "." + allPokemon.get(i).getName());
-        }
-        System.out.println("Choose 3 pokemon");
         for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < allPokemon.size(); j++) {
+                System.out.println((j + 1) + "." + allPokemon.get(j).getName());
+            }
+            System.out.println("Choose 3 pokemon");
             pokemon[i] = getPokemonByNumber(allPokemon,i);
+            allPokemon.remove(pokemon[i]);
         }
         showMyPokemon();
     }
