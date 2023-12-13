@@ -5,7 +5,7 @@ import java.util.stream.Stream;
 public class Display {
     User user1 = new User();
     Pokemon firePokemon = new Pokemon("Dragonus", "Red",PokemonType.FIRE, 100, 50, 30, new Size(Size.NORMAL),new Attack());
-    Pokemon waterPokemon = new Pokemon("Wobafet", "Blue",PokemonType.WATER, 100, 30, 30, new Size(Size.SMALL),new Attack());
+    Pokemon waterPokemon = new Pokemon("Wobafet", "Blue",PokemonType.WATER, 100, 30, 30, new Size(Size.NORMAL),new Attack());
     Pokemon grassPokemon = new Pokemon("Bulbasore", "Green",PokemonType.GRASS, 100, 50, 30, new Size(Size.SMALL),new Attack());
     Pokemon electricPokemon = new Pokemon("Pikachu", "Yellow",PokemonType.ELECTRIC, 100, 50, 30, new Size(Size.SMALL), new Attack());
     Pokemon flyingPokemon = new Pokemon("Charizard", "Orange",PokemonType.FLYING, 100, 50, 30, new Size(Size.SMALL),new Attack());
@@ -13,6 +13,8 @@ public class Display {
             = Stream.of(firePokemon,waterPokemon,grassPokemon,electricPokemon,flyingPokemon)
             .collect(Collectors.toCollection(
                     ArrayList::new));
+
+    Terrain terrain=new Terrain();
 
     public Pokemon choosePokemonForOneBattle(){
         Scanner input = new Scanner(System.in);
@@ -137,7 +139,7 @@ public class Display {
 
     }
     public void startGame(Pokemon currentMyPokemon,Attack attackForMyPokemon,Pokemon currentEnemyPokemon,Attack attackForEnemyPokemon){
-        Battle battle = new Battle(currentMyPokemon,currentEnemyPokemon);
+        Battle battle = new Battle(currentMyPokemon,currentEnemyPokemon, terrain);
         System.out.println("Health points of your pokemon: " + currentMyPokemon.getName() + ": " + currentMyPokemon.getHealthPoints());
         System.out.println("Health points of enemy pokemon: " + currentEnemyPokemon.getName() + ": " + currentEnemyPokemon.getHealthPoints());
         System.out.println("Attack points of your pokemon: " + currentMyPokemon.getAttackPoints());
@@ -173,7 +175,7 @@ public class Display {
     public void selectTerrain(){
         Scanner input = new Scanner(System.in);
         int choice;
-        Terrain terrain=new Terrain();
+
 
             System.out.println("Choose terrain for battle : ");
             System.out.println("№1 Volcano");

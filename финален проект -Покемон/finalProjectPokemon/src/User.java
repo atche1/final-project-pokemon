@@ -27,7 +27,31 @@ public class User implements Chooseable {
         }
     }
 
-    public void choosePokemon(ArrayList<Pokemon> allPokemon) {
+//    public void choosePokemon(ArrayList<Pokemon> allPokemon) {
+//        Scanner input = new Scanner(System.in);
+//        try{
+//        System.out.println("Available pokemon:");
+//        for (int i = 0; i < 3; i++) {
+//                for (int j = 0; j < allPokemon.size(); j++) {
+//                    System.out.println((j + 1) + "." + allPokemon.get(j).getName());
+//                }
+//                System.out.println("Choose 3 pokemon");
+//                pokemon[i] = getPokemonByNumber(allPokemon, i);
+//                allPokemon.remove(pokemon[i]);
+//
+//        }
+//            showMyPokemon();
+//        }
+//        catch (java.util.InputMismatchException e) {
+//            System.out.println("Invalid input. Please enter a valid integer.");
+//            input.nextLine(); // Consume the invalid input
+//        } catch (IndexOutOfBoundsException e) {
+//            System.out.println("Invalid choice. Please enter a number between 1 and " + allPokemon.size());
+//            input.nextLine(); // Consume the invalid input
+//        }
+//
+//    }
+public void choosePokemon(ArrayList<Pokemon> allPokemon) {
         Scanner input = new Scanner(System.in);
         System.out.println("Available pokemon:");
         for (int i = 0; i < 3; i++) {
@@ -35,11 +59,12 @@ public class User implements Chooseable {
                 System.out.println((j + 1) + "." + allPokemon.get(j).getName());
             }
             System.out.println("Choose 3 pokemon");
-            pokemon[i] = getPokemonByNumber(allPokemon,i);
-            allPokemon.remove(pokemon[i]);
+            pokemon[i] = getPokemonByNumber(allPokemon, i);
         }
         showMyPokemon();
-    }
+}
+
+
 
     public Pokemon getPokemonByNumber(ArrayList<Pokemon> allPokemon,int i) {
         Scanner input = new Scanner(System.in);
