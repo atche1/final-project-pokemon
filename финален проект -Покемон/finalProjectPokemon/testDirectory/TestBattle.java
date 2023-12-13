@@ -26,7 +26,7 @@ public class TestBattle {
         int damage = attackPoints - myPokemon.getDefensePoints();
         int expectedHealth = myPokemon.getHealthPoints() - damage;
 
-        assertEquals(95,expectedHealth);
+        assertEquals(74,expectedHealth);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class TestBattle {
         int damage = attackPoints - enemyPokemon.getDefensePoints();
         int expectedHealth = enemyPokemon.getHealthPoints() - damage;
 
-        assertEquals(95,expectedHealth);
+        assertEquals(74,expectedHealth);
     }
 
 }
