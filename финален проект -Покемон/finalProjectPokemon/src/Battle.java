@@ -35,8 +35,6 @@ public class Battle {
     public void attackByTheEnemyPokemon(Attack attackType, double effectiveness) {
         TerrainManager.setTerrain(enemyPokemon, volcanoTerrain);
         EvolutionManager.evolvePokemon(enemyPokemon);
-        // това е излишно мисля
-        int healthPointsAtTheBeginning = myPokemon.getHealthPoints();
         int attackPoints = (int) (enemyPokemon.getAttackPoints() * effectiveness + attackType.getPower());
         int damage = attackPoints - myPokemon.getDefensePoints();
         int healthPoints = myPokemon.getHealthPoints() - damage;
@@ -54,8 +52,6 @@ public class Battle {
        TerrainManager.setTerrain(myPokemon, selectedTerrain);
        EvolutionManager.evolvePokemon(myPokemon);
         System.out.println( "Attack after terain bonus"+myPokemon.getAttackPoints());
-        // това е излишно мисля
-        int healthPointsAtTheBeginning = enemyPokemon.getHealthPoints();
         int attackPoints = (int) (myPokemon.getAttackPoints() * effectiveness + attackType.getPower());
         int damage = attackPoints - enemyPokemon.getDefensePoints();
         int healthPoints = enemyPokemon.getHealthPoints() - damage;

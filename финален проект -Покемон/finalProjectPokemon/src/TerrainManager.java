@@ -7,7 +7,6 @@ public class TerrainManager {
 
     public static void setTerrain(Pokemon pokemon, Terrain terrain) {
         pokemonTerrainMap.put(pokemon, terrain);
-        // Актуализирай характеристиките на покемона, ако е необходимо
         pokemon.adjustStatsByTerrain();
     }
 
