@@ -187,8 +187,6 @@ public class Display {
     public void selectTerrain(){
         Scanner input = new Scanner(System.in);
         int choice;
-
-
             System.out.println("Choose terrain for battle : ");
             System.out.println("№1 Volcano");
             System.out.println("№2 Sea");

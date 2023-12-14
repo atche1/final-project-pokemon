@@ -44,7 +44,7 @@ public class Battle {
             System.out.println("Your attack is negated. Pokemon took 0 dmg");
         }else if (myPokemon.getDefensePoints()<attackPoints){
             myPokemon.setHealthPoints(healthPoints);
-            System.out.println("Health points of your pokemon after attack: " + myPokemon.getHealthPoints());
+            System.out.println("Health points of your pokemon after attack: " + (myPokemon.getHealthPoints() > 0 ? myPokemon.getHealthPoints() : 0));
         }
 
     }
@@ -64,7 +64,7 @@ public class Battle {
             System.out.println("Your attack againts the enemy is negated. Pokemon took 0 dmg");
         }else if (enemyPokemon.getDefensePoints()<attackPoints){
             enemyPokemon.setHealthPoints(healthPoints);
-            System.out.println("Health points of enemy pokemon after attack: " + enemyPokemon.getHealthPoints());
+            System.out.println("Health points of enemy pokemon after attack: " + (enemyPokemon.getHealthPoints() > 0 ? enemyPokemon.getHealthPoints() : 0));
         }
         if(enemyPokemon.getHealthPoints()<0){
             myPokemon.setHealthPoints(100);
