@@ -9,9 +9,13 @@ public abstract class EvolvablePokemon implements PokemonAttributes,Evolvable {
 
     public void evolve() {
         Random random = new Random();
-        int randomNumber = random.nextInt(5);
-        if (randomNumber == 1) {
+        int randomNumber = random.nextInt(5); // Случайно число от 0 до 10
+      // randomNumber=5;
+        if (randomNumber == 1) { // Примерно число за еволюция
+
+
             if (!evolved) {
+                // Логика за еволюцията
                 evolved = true;
                 applyEvolutionBonuses();
                 System.out.println("Pokemon evolved!");

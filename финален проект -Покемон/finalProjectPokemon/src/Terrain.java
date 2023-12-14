@@ -11,6 +11,7 @@ public class Terrain {
     public String getType() {
         return type;
     }
+    // toString за визуализиране
     @Override
     public String toString() {
         return "Terrain{" +
