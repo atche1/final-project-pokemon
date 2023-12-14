@@ -20,8 +20,8 @@ public class TestBattle {
     }
 
     @Test
-    public void attackByTheEnemyPokemon_InflictDamage_CorrectHealthPoints() {
-        double effectiveness = 0.5; // Assuming normal effectiveness
+    public void attackByTheEnemyPokemonWhenInflictDamageThenCorrectHealthPoints() {
+        double effectiveness = 0.5;
         int attackPoints = (int) ((enemyPokemon.getAttackPoints() * effectiveness) + attackType.getPower());
         int damage = attackPoints - myPokemon.getDefensePoints();
         int expectedHealth = myPokemon.getHealthPoints() - damage;
@@ -30,8 +30,8 @@ public class TestBattle {
     }
 
     @Test
-    public void attackByMyPokemon_InflictDamage_CorrectHealthPoints() {
-        double effectiveness = 0.5; // Assuming normal effectiveness
+    public void attackByMyPokemonWhenInflictDamageThenCorrectHealthPoints() {
+        double effectiveness = 0.5;
         int attackPoints = (int) ((myPokemon.getAttackPoints() * effectiveness) + attackType.getPower());
         int damage = attackPoints - enemyPokemon.getDefensePoints();
         int expectedHealth = enemyPokemon.getHealthPoints() - damage;
